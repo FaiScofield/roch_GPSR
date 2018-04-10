@@ -1,19 +1,12 @@
---------------------
-##### For Roch GPSR
-#####
-##### Author: Vance Wu
-##### Date: 2017.08.10
---------------------
-
-    [Roch机器人](http://wiki.ros.org/roch_robot)参加2017年中国机器人大赛的代码，时间有限，仅完成部分工作。目前已实现的功能有：建图，导航，语音识别（asr），语音合成(tts)，任务理解，ROS状态机框架，人物跟随等。未完成部分：物体识别，物体抓取，人物识别等。
+[Roch机器人](http://wiki.ros.org/roch_robot)参加2017年中国机器人大赛的代码，时间有限，仅完成部分工作。目前已实现的功能有：建图，导航，语音识别（asr），语音合成(tts)，任务理解，ROS状态机框架，人物跟随等。未完成部分：物体识别，物体抓取，人物识别等。
     
-### 各功能包说明:
+#### 各功能包说明:
 + roch_asr: 命令词识别(离线)
 + roch_gpsr: GPSR任务框架和执行代码
 + roch_tts: 语音合成(在线)
 + xfei_tts: 语音合成(离线)
 
-### 移植程序需要修改的地方:
+#### 移植程序需要修改的地方:
 * 1)先将roch_asr, roch_gpsr, roch_tts或xfei_tts各包中CMakeList.txt文件中的<b>添加可执行文件部分</b>(add_executable, target_link_libraries, add_dependencies)注释,先行编译一次,使Action的头文件得以生成.
 
 * 2)将三个包中的CMakeList.txt文件及<b>可执行文件的源文件</b>中的路径,改为自己电脑上对应的路径.
@@ -35,36 +28,36 @@
   - 登录失败:检查第3)步和第4)步
   - 库和ID不匹配:检查第4)步
     
-### 执行指令
-#### 远程登录
+#### 执行指令
+##### 远程登录
 > ssh ubuntu@192.168.0.116    #sawyer-wifi
 
 > ssh ubuntu@10.42.0.1        #hot-roch
  
-#### 赛前建图
+##### 赛前建图
 > roslaunch roch_gpsr roch_build_map.launch
 
 > rosrun rosbag record /scan /tf
 
 > rosrun map_server map_saver -f gpsr.yaml
 
-#### 比赛开始
-#### 开启Roch和xtion(ssh)
+##### 比赛开始
+##### 开启Roch和xtion(ssh)
 > roslaunch roch_gpsr roch_bringup.launch --screen
 
-#### 开启GPSR(ssh)
+##### 开启GPSR(ssh)
 > roslaunch roch_gpsr gpsr_server.launch
 
 > roslaunch roch_gpsr gpsr_smach.launch
 
-#### 远程监控
+##### 远程监控
 > roslaunch roch_viz view_navigation.launch --screen
 
-#### 开启RealSense(ssh)
+##### 开启RealSense(ssh)
 > roslaunch realsense_camera sr300_nodelet_rgbd.launch
 
-### 注:
-#### 参考网址：
+#### 注:
+##### 参考网址：
 [ROS语音交互——科大讯飞语音合成TTS（二）](http://www.cnblogs.com/CZM-/p/6204233.html)
 
 [ROS语音交互（三）科大讯飞语音在ROS平台下使用](http://www.cnblogs.com/CZM-/p/6208415.html)
@@ -81,7 +74,7 @@
 
 [ROS(indigo)语音工具 科大讯飞 百度 pocketsphinx julius rospeex 16.11.22更新 ROS中文语音](https://blog.csdn.net/zhangrelay/article/details/53022494)
 
-#### 一些相关的github项目：
+##### 一些相关的github项目：
 [官方github](https://github.com/RoboCupAtHome)
 
 [turtlebot](https://github.com/FansaOrz/robocup-home_package_turtlebot)
@@ -90,13 +83,16 @@
 
 [2015年日本队伍的代码](https://github.com/hibikino-musashi-athome),本项目框架的主要参考
 
-#### 建图过程用RPlidar,保持以下环境变量:
-> export ROCH_LASER=rplidar
-> export ROCH_LASER_ENABLE=true
-> export ROCH_3D_SENSOR=false
-> export ROCH_3D_SENSOR_NAV_ENABLE=false
-#### 比赛过程不使用RPlidar,保持以下环境变量:
-> export ROCH_LASER_ENABLE=false
-> export ROCH_3D_SENSOR=true
-> export ROCH_3D_SENSOR_NAV_ENABLE=true
-
+##### 建图过程用RPlidar,保持以下环境变量:
+```bash
+export ROCH_LASER=rplidar
+export ROCH_LASER_ENABLE=true
+export ROCH_3D_SENSOR=false
+export ROCH_3D_SENSOR_NAV_ENABLE=false
+```
+##### 比赛过程不使用RPlidar,保持以下环境变量:
+```bash
+export ROCH_LASER_ENABLE=false
+export ROCH_3D_SENSOR=true
+export ROCH_3D_SENSOR_NAV_ENABLE=true
+```
