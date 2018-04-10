@@ -1,0 +1,5 @@
+string task_rec_goal
+---
+bool task_rec_result
+---
+bool task_rec_feedback

@@ -1,0 +1,94 @@
+﻿#BNF+IAT 1.0 GB2312;
+!grammar mission;
+
+!slot <go>;
+!slot <back>;
+!slot <lead>;
+!slot <deliver>;
+!slot <put>;
+
+!slot <livingroom>;
+!slot <dingingroom>;
+!slot <kitchen>;
+!slot <bedroom>;
+!slot <ld>;
+!slot <dd>;
+!slot <kd>;
+!slot <bd>;
+!slot <here>;
+!slot <out>;
+
+!slot <grasp>;
+!slot <lookfor>;
+!slot <count>;
+!slot <item>;
+
+!slot <tell>;
+!slot <give>;
+!slot <leave>;
+
+
+!start <missionstart>;
+<missionstart>:<task1>|<task2>|<task3>|<task4>;
+
+<task1>:<mission1><mission1><mission1>;
+<task2>:<mission1><mission2><mission1>;
+<task3>:<mission1><mission3><mission1>;
+<task4>:<mission1><mission2><mission3>;
+
+
+<mission1>:<ActionMove><location><li>;
+<ActionMove>:<go>|<back>|<lead>|<deliver>|<put>;
+<go>:过去!id(101)|去!id(101)|走到!id(101)|到!id(101)|移动到!id(101);
+<back>:回到!id(102)|返回!id(102);
+<lead>:带他!id(103)|带他去!id(103)|带他到!id(103)|指引他!id(103)|指引他去!id(103)|指引他到!id(103);
+<deliver>:运送到!id(104)|拿到!id(104);//运到!id(104)|
+<put>:放在!id(105)|放下!id(105)|放到!id(105)|放入!id(105)|放进!id(105)|丢到!id(105)|丢进!id(105);
+<li>:那|那里;
+
+<location>:([<livingroom>][<ld>])|([<dingingroom>][<dd>])|([<kitchen>][<kd>])|([<bedroom>][<bd>])|<here>|<out>;
+<livingroom>:客厅!id(1100);
+<ld>:长沙发!id(1101)|短沙发!id(1102)|长桌!id(1103)|桌子!id(1103)|圆桌!id(1104)|电视机!id(1105);
+<dingingroom>:餐厅!id(1200);
+<dd>:柜子!id(1201)|架子!id(1201)|长桌!id(1202)|桌子!id(1202);
+<kitchen>:厨房!id(1300);
+<kd>:冰箱!id(1301)|架子!id(1302)|柜子!id(1302)|桌子!id(1303);
+<bedroom>:卧室!id(1400);
+<bd>:床!id(1401)|柜子!id(1402)|架子!id(1402)|圆桌!id(1403);
+<here>:这里!id(1500)|我这里!id(1500)|我这!id(1500)|原位!id(1500);
+<out>:出去!id(1600)|外面!id(1600)|离开!id(1600)|离开这里!id(1600);
+
+
+<mission2>:<ActionBring><item>;
+<ActionBring>:(<grasp>|<lookfor>|<count>)([<number>]);
+<grasp>:拿!id(201)|拿起!id(201)|抓!id(201)|抓起!id(201);
+<lookfor>:找到!id(202)|找!id(202);
+<count>:算出!id(203)|计算!id(203)|数一数!id(203);
+<number>:一个|[有]几个|[有]多少[个]|数量;
+<item>:人!id(2000)|餐巾纸!id(2001)|纸巾!id(2001)|杯子!id(2002)|水杯!id(2002)|橙汁!id(2003)|饮料!id(2003)|牛奶!id(2004)|苹果!id(2005)|橡皮擦!id(2006);
+
+
+<mission3>:([<with>]<tell>)|<give>|<leave>;
+<with>:(对他|向他|跟他)([作]);
+<tell>:自我介绍!id(301)|介绍自己!id(301)|聊天!id(301)|交流!id(301)|对话!id(301);
+<give>:给我!id(302)|带给我!id(302)|拿到这!id(302)|拿给我!id(302);
+<leave>:离开这!id(303)|离开这里!id(303)|结束任务!id(303)|完成!id(303);
+
+
+/*
+注:
+    1)变量名称不能超过15字符
+    2)编号!id和结束符号;前不可是标点']'等,可用括号
+    
+//离开的动作编号是103,位置编号是1600
+
+可能的任务:
+Move to the LOCATION, move to the LOCATION, and move to the LOCATION.
+Move to the LOCATION, move to the LOCATION and leave the apartment.
+Move to the LOCATION, grasp the ITEM, and bring it to me.
+Move to the LOCATION, grasp the ITEM, and bring it to the LOCATION.
+Move to the LOCATION, grasp the ITEM, and put it in the trash bin.
+Move to the LOCATION, find a person, and introduce yourself.
+Move to the LOCATION, find a person, and guide it to the exit.
+*/
+

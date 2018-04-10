@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+	<!-- roch -->
+	
+	<include file="$(find roch_bringup)/launch/minimal.launch"/>
+	<include file="$(find roch_navigation)/launch/amcl_demo.launch">
+		<arg name="initial_pose_x" value="-0.7"/>
+	  	<arg name="initial_pose_y" value="0.0"/>
+   	  	<arg name="initial_pose_a" value="0.0"/>
+	</include>
+</launch>

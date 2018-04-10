@@ -1,0 +1,18 @@
+﻿#BNF+IAT 1.0 GB2312;
+!grammar confirm;
+
+!slot <yes>;
+!slot <no>;
+
+!start <taskconfirm>;
+
+<taskconfirm>:<yes>|<no>;
+
+<yes>:是!id(11)|对!id(11)|是的!id(11)|对的!id(11)|没错!id(11)|没问题!id(11)|正确!id(11)|yes!id(11)|right!id(11)|"you are right"!id(11);
+<no>:不是!id(10)|不对!id(10)|错了!id(10)|no!id(10);
+
+
+/*
+确认任务时用的语法文件
+*/
+

@@ -1,0 +1,5 @@
+string roch_asr_goal
+---
+bool roch_asr_result
+---
+bool roch_asr_feedback

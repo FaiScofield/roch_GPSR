@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<launch>
+    <node pkg="roch_gpsr" type="common_param.py" name="common_param"/>
+    <!--<node pkg="roch_gpsr" type="speech_rec_GPSR.py" name="speech_rec" output="screen"/>-->
+    <node pkg="roch_gpsr" type="sm_gpsr.py" name="sm_GPSR" output="screen"/>
+    
+    
+    
+    <!--<node pkg="smach_viewer" type="smach_viewer.py" name="smach_viewer"/>-->
+</launch>

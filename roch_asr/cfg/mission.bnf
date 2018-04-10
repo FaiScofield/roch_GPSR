@@ -1,0 +1,44 @@
+﻿#BNF+IAT 1.0 GB2312;
+!grammar mission;
+
+
+!start <missionstart>;
+<missionstart>:<task5>;
+
+<task5>:<mission1><mission2><mission1>;
+
+<mission1>:<ActionMove><location>;
+<ActionMove>:<go>|<back>|<lead>|<deliver>|<put>;
+<go>:过去!id(101)|去!id(101)|走到!id(101)|到!id(101)|移动到!id(101);
+<back>:回到!id(102)|返回!id(102)|回来!id(102);
+<lead>:带他!id(103)|带他去!id(103)|带他到!id(103)|指引他!id(103)|指引他去!id(103)|指引他到!id(103);
+<deliver>:运送到!id(104)|拿到!id(104);
+<put>:放在!id(105)|放下!id(105)|放到!id(105)|放入!id(105)|放进!id(105)|丢到!id(105)|丢进!id(105);
+
+<location>:<room>|<here>;
+<room>:三零三找邹诚!id(1101)|三零六!id(1102)|走廊!id(1103);
+<here>:这里!id(1200)|我这里!id(1200)|我这!id(1200)|原位!id(1200);
+
+
+<mission2>:<ActionBring><item>;
+<ActionBring>:(<grasp>|<lookfor>|<count>)([<number>]);
+<grasp>:拿!id(201)|拿起!id(201)|抓!id(201)|抓起!id(201);
+<lookfor>:找到!id(202)|找!id(202);
+<count>:算出!id(203)|计算!id(203)|数一数!id(203);
+<number>:[一]个|[有]几个|[有]多少[个]|数量;
+<item>:人!id(2000)|餐巾纸!id(2001)|纸巾!id(2001)|杯子!id(2002)|水杯!id(2002)|橙汁!id(2003)|饮料!id(2003)|牛奶!id(2004)|苹果!id(2005)|橡皮擦!id(2006)|优盘!id(2007);
+
+
+<mission3>:([<with>]<tell>)|<give>;
+<with>:(对他|向他|跟他)([作]);
+<tell>:自我介绍!id(301)|介绍自己!id(301)|聊天!id(301)|交流!id(301)|对话!id(301);
+<give>:给我!id(302)|带给我!id(302)|拿到这!id(302)|拿给我!id(302);
+
+
+
+/*
+注:
+    1)变量名称不能超过15字符
+    2)编号!id和结束符号;前不可是标点']'等,可用括号
+*/
+

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!--node pkg="roch_tts" type="roch_tts_server" name="roch_tts_server" output="screen"/-->
+    <node pkg="xfei_tts" type="xfei_tts_server" name="xfei_tts_server" output="screen"/>
+    <node pkg="roch_asr" type="roch_asr_server" name="roch_asr_server" output="screen"/>
+    <node pkg="roch_gpsr" type="task_rec_server" name="task_rec_server" output="screen"/>
+    <node pkg="roch_gpsr" type="sound_effect_server.py" name="sound_effect_server" output="screen"/>
+
+</launch>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<launch>
+	<!-- bringup roch -->	
+	<include file="$(find roch_bringup)/launch/minimal.launch"/>
+	<!-- xbox control -->
+	<include file="$(find roch_teleop)/launch/xbox360_teleop.launch"/>
+	<!-- gmapping -->
+	<include file="$(find roch_navigation)/launch/gmapping_demo.launch"/>
+	<!-- rviz -->
+	<include file="$(find roch_viz)/launch/view_navigation.launch"/>
+	<!-- rosbag
+	<node pkg="rosbag" type="rosbag" name="rosbag" args=""/>-->
+	
+</launch>

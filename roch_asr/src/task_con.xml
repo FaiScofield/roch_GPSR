@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<nlp>
+    <version>1.1</version>
+    <rawtext>放上去了</rawtext>
+    <confidence>9</confidence>
+    <engine>local</engine>
+    <result>
+        <focus>放上去了</focus>
+        <confidence>10</confidence>
+        <object>
+            <放上去了 id="12">放上去了</放上去了>
+        </object>
+    </result>
+</nlp>

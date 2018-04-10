@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<nlp>
+    <version>1.1</version>
+    <rawtext>到三零三找邹诚拿个优盘回到这里</rawtext>
+    <confidence>65</confidence>
+    <engine>local</engine>
+    <result>
+        <focus>到|三零三找邹诚|拿|个|优盘|回到|这里</focus>
+        <confidence>63|58|67|71|69|79|97</confidence>
+        <object>
+            <到 id="101">到</到>
+            <三零三找邹诚 id="1101">三零三找邹诚</三零三找邹诚>
+            <拿 id="201">拿</拿>
+            <个 id="65535">个</个>
+            <优盘 id="2007">优盘</优盘>
+            <回到 id="102">回到</回到>
+            <这里 id="1200">这里</这里>
+        </object>
+    </result>
+</nlp>

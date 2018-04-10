@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+	<!-- roch -->
+	<include file="$(find roch_viz)/launch/view_navigation.launch"/>
+	<include file="$(find roch2_bringup)/launch/minimal.launch"/>
+	<include file="$(find roch_navigation)/launch/amcl_demo.launch"/>
+</launch>

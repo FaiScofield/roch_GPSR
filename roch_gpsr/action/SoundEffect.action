@@ -1,0 +1,6 @@
+string sound_effect_goal
+---
+bool sound_effect_result
+---
+bool sound_effect_feedback
+
