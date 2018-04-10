@@ -9,30 +9,30 @@
 ssh ubuntu@192.168.0.116    #sawyer-wifi
 ssh ubuntu@10.42.0.1        #hot-roch
     
-### 赛前建图
+## 赛前建图
 roslaunch roch_gpsr roch_build_map.launch
 rosrun rosbag record /scan /tf
 rosrun map_server map_saver -f gpsr.yaml
 
-### 比赛开始
-# 开启Roch和xtion(ssh)
+## 比赛开始
+## 开启Roch和xtion(ssh)
 roslaunch roch_gpsr roch_bringup.launch --screen
-# 开启GPSR(ssh)
+## 开启GPSR(ssh)
 roslaunch roch_gpsr gpsr_server.launch
 roslaunch roch_gpsr gpsr_smach.launch
-# 远程监控
+## 远程监控
 roslaunch roch_viz view_navigation.launch --screen
 
-# 开启RealSense(ssh)
+## 开启RealSense(ssh)
 roslaunch realsense_camera sr300_nodelet_rgbd.launch
 
-## 注:
-# 建图过程用RPlidar,保持以下环境变量:
+# 注:
+## 建图过程用RPlidar,保持以下环境变量:
 export ROCH_LASER=rplidar
 export ROCH_LASER_ENABLE=true
 export ROCH_3D_SENSOR=false
 export ROCH_3D_SENSOR_NAV_ENABLE=false
-# 比赛过程不使用RPlidar,保持以下环境变量:
+## 比赛过程不使用RPlidar,保持以下环境变量:
 export ROCH_LASER_ENABLE=false
 export ROCH_3D_SENSOR=true
 export ROCH_3D_SENSOR_NAV_ENABLE=true
@@ -40,14 +40,14 @@ export ROCH_3D_SENSOR_NAV_ENABLE=true
 
 
 
-## 各功能包说明:
+# 各功能包说明:
 + roch_asr: 命令词识别(离线)
 + roch_gpsr: GPSR任务框架和执行代码
 + roch_tts: 语音合成(在线)
 + xfei_tts: 语音合成(离线)
 
 
-## 移植程序需要修改的地方:
+# 移植程序需要修改的地方:
 * 1)先将roch_asr, roch_gpsr, roch_tts或xfei_tts各包中CMakeList.txt文件中的[添加可执行文件部分](add_executable, target_link_libraries, add_dependencies)注释,先行编译一次,使Action的头文件得以生成.
 
 * 2)将三个包中的CMakeList.txt文件及[可执行文件的源文件]中的路径,改为自己电脑上对应的路径.
